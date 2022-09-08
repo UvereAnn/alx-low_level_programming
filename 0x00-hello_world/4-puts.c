@@ -1,23 +1,15 @@
-nclude <stdio.h>
-
+#include <stdio.h>
 /**
  *
- * * main - Printing in C programming language
+ * * main - Printing
  *
  * *
  *
- * * Return: Always 0 (It is Successful)
+ * * Return: Always 0 (Successful)
  *
  * */
-
 int main(void)
-
 {
-
-	puts("\"Programming is like building a multilingual
-
-			puzzle");
-
-	return (0);
-
+ puts("\"Programming is like building a multilingual puzzle");
+  return (0);
 }

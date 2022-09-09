@@ -5,7 +5,7 @@
  * Return: always returns 0
  *
  */
-int main (void)
+int main(void)
 {
 	char a;
 

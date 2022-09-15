@@ -1,12 +1,13 @@
-#include "main.h" 
+#include <stdio.h>
+#include "main.h"
 
 /**
- * print_most_numbers - checks for a digit (0 through 9).
+ * print_most_numbers - prints numbers except 2 and 4
  *
- * Return: Always 0
+ * Return: returns nothing
  */
 
-void print_most_numbers(void) 
+void print_most_numbers(void)
 {
 	int n;
 

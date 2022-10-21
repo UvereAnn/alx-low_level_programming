@@ -1,51 +1,40 @@
-#include <stdlib.h>
-#include <string.h>
 #include "lists.h"
 
 /**
-  * add_node - Adds a new node at the beginning of a list
-  * @head: The original linked list
-  * @str: The string to add to the node
-  *
-  * Return: The address of the new list or NULL if it failed
-  */
-list_t *add_node(list_t **head, const char *str)
+ * _strlen - Returns the lenght of a string.
+ * @s: Type char pointer
+ * Return: Always 0.
+ */
+int _strlen(const char *s)
 {
-	list_t *temp;
+	unsigned int len;
 
-	if (head != NULL && str != NULL)
+	for (len = 0; s[len] != '\0'; len++)
 	{
-		temp = malloc(sizeof(list_t));
-		if (temp == NULL)
-			return (NULL);
-
-		temp->str = strdup(str);
-		temp->len = _strlen(str);
-		temp->next = *head;
-
-		*head = temp;
-
-		return (temp);
 	}
+	return (len);
 
-	return (0);
 }
 
 /**
-  * _strlen - Returns the length of a string
-  * @s: String to count
-  *
-  * Return: String length
-  */
-int _strlen(const char *s)
+ * *add_node - Return the number of elements in a linked list
+ * @head: data type poointer of struct node
+ * @str: data type pointer of struct
+ * Return: elements of the str i
+ */
+list_t *add_node(list_t **head, const char *str)
 {
-	int c = 0;
+	list_t *n_node;
 
-	while (*s)
-	{
-		s++;
-		c++;
-	}
+	n_node = malloc(sizeof(list_t));
 
-	return (c);
+	if (n_node == NULL)
+		return (NULL);
+
+	n_node->str = strdup(str);
+	n_node->len = _strlen(str);
+	n_node->next = *head;
+	*head = n_node;
+
+	return (n_node);
 }

@@ -1,1 +1,1 @@
-This directory contains C - More functions, more nested loops
+This directory contains C - Singly linked lists

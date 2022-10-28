@@ -1,1 +1,1 @@
-This directory contains C - Singly linked lists
+this directory contains C-Bit Manipulation

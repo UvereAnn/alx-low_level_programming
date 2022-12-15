@@ -1,1 +1,1 @@
-this directory contains C-Bit Manipulation
+this directory contains C-Low level Programming

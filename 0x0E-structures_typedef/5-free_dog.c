@@ -2,15 +2,19 @@
 #include "dog.h"
 
 /**
- *  free_dog - frees memory allocated for a struct dog
- *  @d: struct dog to free
- */
+* free_dog - unallocated dog object
+*
+* @d: structure pointer param
+*/
+
 void free_dog(dog_t *d)
 {
 	if (d)
 	{
-		free(d->name);
-		free(d->owner);
+		if (d->name)
+			free(d->name);
+		if (d->owner)
+			free(d->owner);
 		free(d);
 	}
 }

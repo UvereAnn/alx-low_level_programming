@@ -1,8 +1,7 @@
-#include <stdio.h>
 #include "main.h"
-
 /**
- * puts2 - prints every other character
+ * puts2 -   prints every other character of a string,
+ * starting with the first character, followed by a new line..
  * @str: string
  *
  * Return: nothing
@@ -10,13 +9,17 @@
 
 void puts2(char *str)
 {
-	int i = 0;
+	int len = 0, i = 0;
 
-	while (*(str + i) != '\0')
+	while (*(str + len) != '\0')
 	{
-		if (i % 2 == 0)
-			putchar(*(str + i));
-		i++;
+		++len;
 	}
-	putchar(10);
+
+	while (i < len)
+	{
+		_putchar(*(str + i));
+		i += 2;
+	}
+	_putchar('\n');
 }

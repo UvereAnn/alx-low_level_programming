@@ -2,82 +2,53 @@
 #include "dog.h"
 
 /**
- * _copy  -   Make a copy of passed in argument
- * @src:      Data to make copy of
- * Return:    Pointer
- */
-
-char *_copy(char *src)
-{
-	char *ptr;
-	int i, len;
-
-	if (src == NULL)
-	{
-		return (NULL);
-	}
-
-	for (len = 0; src[len] != '\0'; len++)
-		;
-
-	ptr = malloc(sizeof(char) * (len + 1));
-
-	if (ptr == NULL)
-	{
-		return (NULL);
-	}
-
-	for (i = 0; src[i] != '\0'; i++)
-	{
-		ptr[i] = src[i];
-	}
-
-	ptr[i] = '\0';
-	return (ptr);
-}
-
-/**
- * new_dog     - Create a new dog variable
- * @name:        Name of the dog
- * @age:         Age of the dog
- * @owner:       Owner of the dog
- * Return:       Pointer to new dog variable
- */
+* new_dog - create new dog object
+*
+* @name: 1st member
+* @age: 2nd member
+* @owner: 3rd member
+*
+*Return: pointer to structure, Null if fail
+*/
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *snoopie;
-	char *new_name, *new_owner;
 
-	if (name == NULL || owner == NULL)
+	int name_ln = 0, owner_ln = 0, c;
+	dog_t *doge;
+
+	while (name[name_ln] != '\0')
+		name_ln++;
+	while (owner[owner_ln] != '\0')
+		owner_ln++;
+
+	doge = malloc(sizeof(dog_t));
+	if (doge == NULL)
 	{
+		free(doge);
 		return (NULL);
 	}
 
-	snoopie = malloc(sizeof(dog_t));
-	if (snoopie == NULL)
+	doge->name = malloc(name_ln * sizeof(doge->name));
+	if (doge->name == NULL)
 	{
+		free(doge->name);
+		free(doge);
 		return (NULL);
 	}
+	for (c = 0; c <= name_ln; c++)
+		doge->name[c] = name[c];
 
-	new_name = _copy(name);
-	if (new_name == NULL)
+	doge->age = age;
+	doge->owner = malloc(owner_ln * sizeof(doge->owner));
+	if (doge->owner == NULL)
 	{
-		free(snoopie);
+		free(doge->owner);
+		free(doge->name);
+		free(doge);
 		return (NULL);
 	}
-	(*snoopie).name = new_name;
-
-	(*snoopie).age = age;
-
-	new_owner = _copy(owner);
-	if (new_owner == NULL)
-	{
-		free((*snoopie).name);
-		free(snoopie);
-		return (NULL);
-	}
-	(*snoopie).owner = new_owner;
-
-	return (snoopie);
+	for (c = 0; c <= owner_ln; c++)
+		doge->owner[c] = owner[c];
+	return (doge);
 }

@@ -1,16 +1,17 @@
 #include <stdio.h>
 /**
- * main - entry point
- *
- * Return: always returns 0
- *
- */
+* main - print single digit base numbers
+* Return: program returns 0
+*/
 int main(void)
 {
-	int a = 0;
+	char n = '0';
 
-	for (; a < 10 ; a++)
-		printf("%d", a);
-	putchar('\n');
+	while (n <= '9')
+	{
+		putchar (n);
+		n++;
+	}
+	putchar ('\n');
 	return (0);
 }

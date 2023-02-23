@@ -1,23 +1,22 @@
 #include <stdio.h>
 /**
- * main - entry point
- *
- * Return: alway returns 0
- *
- */
+* main - print combination of single digits
+* Return: program returns 0
+*/
 int main(void)
 {
-	int i;
+	int n = 0;
 
-	for (i = 10; i < 20; i++)
+	while (n <= 9)
 	{
-		putchar((i % 10) + '0');
-		if (i != 19)
+		putchar (n % 10 + '0');
+		if (n < 9)
 		{
-			putchar(',');
-			putchar(' ');
+			putchar (',');
+			putchar (' ');
 		}
+		n++;
 	}
-	putchar('\n');
+	putchar ('\n');
 	return (0);
 }

@@ -1,16 +1,20 @@
 #include <stdio.h>
+/* more headers goes there */
+
 /**
- * main - entry point
- *
- * Return: alway returns 0
- *
- */
+* main - print lowercase alphabet
+* Return: program returns 0
+*/
 int main(void)
 {
-	char a;
+	char c = 'z';
 
-	for (a = 'z'; a >= 'a' ; a--)
-		putchar(a);
+	while (c >= 'a')
+	{
+		putchar(c);
+		c--;
+	}
 	putchar('\n');
 	return (0);
 }
+

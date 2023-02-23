@@ -1,85 +1,61 @@
 #include <stdio.h>
-#include "main.h"
+#include <stdlib.h>
+#include <string.h>
 
 /**
- * _atoi - converts a string to an integer
- * @s: string to be converted
- *
- * Return: the int converted from the string
- */
-int _atoi(char *s)
+* isNumber - check if string is number.
+* @str: string parameter
+*
+* Return: 1 if number otherwise 0.
+*/
+
+int isNumber(char *str)
 {
-	int i, d, n, len, f, digit;
+	int j = strlen(str);
 
-	i = 0;
-	d = 0;
-	n = 0;
-	len = 0;
-	f = 0;
-	digit = 0;
-
-	while (s[len] != '\0')
-		len++;
-
-	while (i < len && f == 0)
+	while (j--)
 	{
-		if (s[i] == '-')
-			++d;
-
-		if (s[i] >= '0' && s[i] <= '9')
-		{
-			digit = s[i] - '0';
-			if (d % 2)
-				digit = -digit;
-			n = n * 10 + digit;
-			f = 1;
-			if (s[i + 1] < '0' || s[i + 1] > '9')
-				break;
-			f = 0;
-		}
-		i++;
-	}
-
-	if (f == 0)
+		if (str[j] > 47 && str[j] < 58)
+			continue;
 		return (0);
-
-	return (n);
+	}
+return (1);
 }
 
 /**
- * main - adds two positive number
- * @argc: number of arguments
- * @argv: array of arguents
- *
- * Return: 0 (Success), or 1 (Success)
- */
+* main - adds positive numbers recieved by command line.
+* @argc: number of command line arguments
+* @argv: An array containing the program command line arguments
+*
+* Return: 0 if success otherwise 1.
+*/
+
 int main(int argc, char *argv[])
 {
-	int sum, num, i, j, k;
+	int i, sum = 0, count = 0;
 
-	sum = 0;
-
-	for (i = 1; i < argc; i++)
+	if (argc - 1 > 0)
 	{
-		for (j = 0; argv[i][j] != '\0'; j++)
+		for (i = 1; i < argc; ++i)
 		{
-			if (argv[i][j] > '9' || argv[i][j] < '0')
-			{
-				puts("Error");
-				return (1);
-			}
+			if (!isNumber(argv[i]))
+				++count;
+			else
+				sum += atoi(argv[i]);
 		}
 	}
 
-	for (k = 1; k < argc; k++)
+	if (argc - 1 == 0 || count == argc - 1)
+		printf("0\n");
+
+	else if (count > 0)
 	{
-		num = _atoi(argv[k]);
-		if (num >= 0)
-		{
-			sum += num;
-		}
+		printf("Error\n");
+		return (1);
 	}
 
-	printf("%d\n", sum);
-	return (0);
+	else
+		printf("%d\n", sum);
+
+return (0);
 }

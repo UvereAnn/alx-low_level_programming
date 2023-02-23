@@ -1,26 +1,24 @@
 #include <stdio.h>
 /**
- * main - entry point
- *
- * Return: alway returns 0
- *
- */
+* main - print combination of single digits
+* Return: program returns 0
+*/
 int main(void)
 {
-	unsigned char a = '0';
-	int i;
+	int n = 0;
 
-	for (i = 0; i < 10; i++)
+	while (n <= 9)
 	{
-		putchar(a);
-		a++;
+		putchar (n % 10 + '0');
+		n++;
 	}
-	a = '1';
-	for (i = 0; i < 6; i++)
+
+	n = 97;
+	while (n <= 102)
 	{
-		putchar('0' + a);
-		a++;
+		putchar (n);
+		n++;
 	}
-	putchar('\n');
+	putchar ('\n');
 	return (0);
 }

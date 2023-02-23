@@ -1,18 +1,28 @@
 #include <stdio.h>
+/* more headers goes there */
+
 /**
- * main - entry point
- *
- * Return: always returns 0
- *
- */
+* main - print lowercases alphabet
+* followed by uppercase alphabets
+* Return: program returns 0
+*/
 int main(void)
 {
-	char a;
+	char c = 'a';
 
-	for (a = 'a'; a <= 'z'; a++)
-		putchar(a);
-	for (a = 'A'; a <= 'Z'; a++)
-		putchar(a);
+	while (c <= 'z')
+	{
+		putchar(c);
+		c++;
+	}
+
+	c = 'A';
+	while (c <= 'Z')
+	{
+		putchar(c);
+		c++;
+	}
 	putchar('\n');
 	return (0);
 }
+

@@ -1,37 +1,39 @@
 #include <stdio.h>
 /**
- * main - entry point
- *
- * Return: alway returns 0
- *
- */
+* main - print combination of single digits
+* Return: program returns 0
+*/
 int main(void)
 {
-	int i;
-	int j;
-	int k;
+	int n = 0;
 
-	for (i = 0; i <= 9; i++)
+	while (n <= 9)
 	{
-		for (j = 0; j <= 9; j++)
-		{
-			for (k = 0; k <= 9; k++)
-			{
-				if (k > j && j > i)
-				{
-					putchar(i + '0');
-					putchar(j + '0');
-					putchar(k + '0');
+		int i = n;
 
-					if (i != 7 || j != 8 || k != 9)
+		while (i <= 9)
+		{
+			int j = i;
+
+			while (j <= 9)
+			{
+				if (n != i && i != j)
+				{
+					putchar (n % 10 + '0');
+					putchar (i % 10 + '0');
+					putchar (j % 10 + '0');
+					if (n != 7)
 					{
-						putchar(',');
-						putchar(' ');
+						putchar (',');
+						putchar (' ');
 					}
 				}
+				j++;
 			}
+			i++;
 		}
+		n++;
 	}
-	putchar('\n');
+	putchar ('\n');
 	return (0);
 }

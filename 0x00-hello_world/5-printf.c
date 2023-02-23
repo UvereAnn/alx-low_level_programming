@@ -1,11 +1,10 @@
-#include <stdio.h>
 /**
- * main -Entry point
- *
- * Return: always 0
+ * main - Print text to standard output using printf() funtion.
+ * Return: program returns 0
  */
+#include <stdio.h>
 int main(void)
 {
-	printf("with proper grammar, but the outcome is a piece of art,\n");
-	return (0);
+printf("with proper grammar, but the outcome is a piece of art,\n");
+return (0);
 }

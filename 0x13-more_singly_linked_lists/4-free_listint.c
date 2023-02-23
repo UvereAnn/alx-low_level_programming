@@ -1,19 +1,21 @@
+#include <string.h>
 #include "lists.h"
 
 /**
- * free_listint - frees a linked list
- * @head: head of the list
- *
- * Return: void
- */
+* free_listint - frees a singly linked list.
+* @head: a linked list to print
+*
+* Return: void.
+*/
+
 void free_listint(listint_t *head)
 {
-	listint_t *temp;
+	listint_t *tmp_node; /* Create a temporary node */
 
-	while (head != NULL)
+	while (head)
 	{
-		temp = head;
+		tmp_node = head;
 		head = head->next;
-		free(temp);
+		free(tmp_node);
 	}
 }
